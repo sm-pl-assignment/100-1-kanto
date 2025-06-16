@@ -1,0 +1,472 @@
+/* 基本設定 */
+body {
+    font-family: 'Noto Sans JP', sans-serif;    /* サイト全体の基本フォント＝Googleフォント優先 */
+
+    
+    margin: 0;  /* 自動の外側余白を0＝意図しない余白回避 */
+    padding: 0; /* 内側余白を0 */
+    line-height: 1.7;   /* 行の高さ＝文字の大きさの1.7倍＝詰まり回避 */
+    color: #333;    /* フォントカラー：濃い灰色 */
+    background-color: #f9f9f9;  /* 全体背景色：薄い灰色 */
+}
+
+h1, h2, h3, h4, h5 {
+    margin: 0;  /* hタグ（見出し）の余白＝0 */
+}
+
+p {
+    margin: 0 0 1em 0;  /* pタグ (段落) の余白設定＝下だけ1em */
+}
+
+img {
+    max-width: 100%;    /* 画像の最大幅＝親要素を超えないよう */
+    height: auto;   /* 高さ自動調整 */
+    display: block;
+}
+
+a {
+    color: #3498db; /* リンク文字色 */
+    text-decoration: none;  /* リンク下線なし */
+}
+
+.content-title {
+    text-align: center; /* 各項目タイトルの文字＝中央揃え */
+    font-size: 2.2em;   /* フォントサイズ＝基本の2.2倍 */
+    color: #2c3e50; /* 文字色 */
+    margin-top: 15px;   /* 上側余白 */
+    margin-bottom: 25px;    /* 下側余白 */
+    font-family: 'Sawarabi Mincho', serif;  /* 見出し用のフォント */
+}
+
+.content-box {
+    padding: 40px 20px; /* 内側余白＝画面の端詰まり回避 */
+}
+
+
+/* ヘッダー */
+header {
+    background-color: #2c3e50;  /* 背景色 */
+    color: #fff;    /* 文字色 */
+    padding: 15px 20px; /* 内側余白 */
+    position: sticky;   /* ヘッダー固定 */
+    top: 0; /* 画面の上端から0pxの位置に固定 */
+    z-index: 1000;  /* 他の要素より手前に表示 */
+    display: flex;  /* Flexboxレイアウト */
+    align-items: center;    /* 要素の中央揃え */
+    justify-content: space-between; /* 要素の横並び配置 */
+}
+
+.logo h1 {
+    font-size: 1.2em;   /* フォントサイズ＝基本の1.2倍 */
+    font-weight: 700;   /* 太字設定 */
+}
+
+.logo {
+    flex: 1;    /* ロゴ＝左配置 */
+}
+
+.header-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* 右寄せ */
+}
+
+.navigation ul {
+    list-style: none;   /* 「・」非表示 */
+    padding: 0; /* 内側余白なし */
+    margin: 0;  /* 外側余白なし */
+    display: flex;
+}
+
+.navigation ul li {
+    /* 各項目の左側に30pxの余白＝項目間スペース */
+    margin-left: 30px;
+}
+
+.navigation a {
+    color: #fff;    /* 文字色 */
+    font-weight: 500;   /* 太字 */
+    transition: color 0.3s ease;    /* 色変化アニメーション＝0.3秒かけて */
+}
+
+.navigation a:hover {
+    color: #e67e22; /* 文字色変化＝オレンジ */
+}
+
+/* タイトル */
+#top {
+    position: relative; /* タイトル背景画像固定 */
+    height: 65vh;   /* 画面の高さ設定 */
+    display: flex;  /* 中央配置 */
+    align-items: center;      /* 垂直方向の中央揃え */
+    justify-content: center;  /* 水平方向の中央揃え */
+    text-align: center; /* テキスト中央揃え */
+    color: #fff;    /* 文字色 */
+    background-color: #2c3e50;  /* 背景画像代替＝紺 */
+    overflow: hidden;   /* はみ出した画像非表示 */
+}
+
+.top-background-image {
+    position: absolute; /* 位置固定 */
+    top: 0;  /* 上端からの距離＝0 */
+    left: 0; /* 左端からの距離＝0 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* 適切なトリミング */
+    z-index: 1; /* 重なり順調整 */
+    opacity: 0.6;   /* 画像の不透明度 */
+}
+
+.top-box {
+    position: relative; /* 位置調整 */
+    z-index: 2; /* 重なり順調整 */
+    padding: 20px;  /* 内側余白 */
+}
+
+#top h2 {
+    font-size: 2.8em;   /* フォントサイズ＝基本の2.8倍 */
+    margin-bottom: 20px;    /* 下側余白 */
+    font-family: 'Sawarabi Mincho', serif;  /* フォント */
+}
+
+/* 共通ボタン設定 */
+.cta-button, .modal-cta-button, .submit-button, .detail-info-link {
+    display: inline-block;
+    background-color: #e67e22;  /* 背景色 */
+    color: #fff;    /* 文字色 */
+    padding: 12px 25px; /* 内側余白 */
+    border: none;   /* ボタン枠線削除 */
+    text-decoration: none;  /* リンク下線削除 */
+    border-radius: 5px; /* 角を丸く */
+    font-size: 1.1em;   /* フォントサイズ＝基本の1.1倍 */
+    font-weight: bold;  /* 太字 */
+    cursor: pointer;    /* マウスカーソル変形 */
+    transition: background-color 0.3s ease; /* 背景色変化アニメーション＝0.3秒 */
+    text-align: center; /* ボタン内テキスト＝中央揃え */
+}
+
+.cta-button:hover, .modal-cta-button:hover, .submit-button:hover, .detail-info-link:hover {
+    background-color: #d35400;  /* 背景色変化 */
+}
+
+.detail-info-link {
+    background-color: #3498db;  /* 背景色 */
+    font-weight: 500;   /* 文字の太さ */
+    margin-top: auto;   /* ボタン配置＝最下 */
+    align-self: center; /* ボタン中央配置 */
+    width: fit-content; /* テキストに合わせてボタン幅調整 */
+}
+
+.detail-info-link:hover {
+    background-color: #2980b9;  /* 背景色 */
+}
+
+/* 導入 */
+#intro {
+    text-align: center; /* テキスト中央揃え */
+    padding: 60px 20px; /* 内側余白 */
+}
+
+#intro h3 {
+    font-size: 2em; /* フォントサイズ＝基本の2倍 */
+    color: #2c3e50; /* 文字色 */
+    margin-bottom: 20px;    /* 下側余白 */
+    font-family: 'Sawarabi Mincho', serif;  /* フォント */
+}
+
+#intro p {
+    line-height: 1.8;   /* 行の高さ1.8倍 */
+    max-width: 800px;   /* 横最大幅＝適切な改行 */
+    margin: 0 auto; /* 要素中央配置*/
+}
+
+
+/* 目次 */
+#table {
+    padding: 30px 20px; /* 内側余白 */
+    border-top: 2px solid #e0e0e0;  /* 上灰色実線 */
+    border-bottom: 2px solid #e0e0e0;   /* 下灰色実線 */
+}
+
+#table ul {
+    list-style: none;   /* 「・」非表示 */
+    padding: 0; /* 内側余白なし */
+    margin: 0 auto; /* 中央配置 */
+    max-width: 600px;
+    text-align: center; /* テキスト中央揃え */
+}
+
+#table li {
+    margin-bottom: 10px;    /* 下側余白 */
+}
+
+#table li:last-child {
+    margin-bottom: 0;   /* 最後の項目＝下の余白なし */
+}
+
+#table a {
+    text-decoration: none;  /* 下線なし */
+    color: #34495e; /* 文字色 */
+    font-size: 1.1em;   /* フォントサイズ＝基本の1.1倍 */
+    padding: 8px 15px;  /* 内側余白 */
+    display: block; /* クリック範囲＝横幅いっぱい */
+    border-radius: 4px; /* 角を丸く */    
+    transition: background-color 0.3s ease, color 0.3s ease;    /* 背景色・文字色変化アニメーション＝0.3秒 */
+}
+
+#table a:hover {
+    background-color: #e9ecef;  /* 背景色＝灰色 */
+    color: #e67e22; /* 文字色 */
+}
+
+/* メインコンテンツ */
+.waka-guide-place {
+    display: grid;  /* 格子状配置 */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));    /* 画面幅に合わせて列の数を自動調整＝レスポンシブ */
+    gap: 30px;  /* カード間＝30px */
+}
+
+.waka-guide-box {
+    background-color: #fff; /* 背景色 */
+    border: 1px solid #ddd; /* 枠線＝灰色 */
+    border-radius: 8px; /* 角を丸く */
+    padding: 25px;  /* 内側余白 */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08); /* 影＝浮き上がっている演出 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  /* 変形＆影アニメーション＝0.3秒 */
+    display: flex;    
+    flex-direction: column; /* 要素を縦方向に配置 */
+}
+
+.waka-guide-box:hover {
+    transform: translateY(-5px);    /* 浮上アニメーション */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12); /* 浮上アニメーション */
+}
+
+.waka-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;  /* 適切トリミング */
+    margin-bottom: 20px;    /* 下側余白 */
+}
+
+.waka-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* 適切トリミング */
+}
+
+.waka-guide-box h5 {
+    font-family: 'Sawarabi Mincho', serif;  /* フォント */
+    font-size: 1.4em;   /* フォントサイズ＝基本の1.4倍 */
+    color: #34495e; /* 文字色 */
+    margin-bottom: 10px;    /* 下側余白 */
+    min-height: 140px;  /* 和歌カード高さ統一 */
+}
+
+.writer {
+    font-style: italic; /* フォント */
+    color: #7f8c8d; /* 文字色 */
+    margin-bottom: 18px;    /* 下側余白 */
+    text-align: right;  /* テキスト右揃え */
+}
+
+.detail-info {
+    font-size: 0.95em;
+    flex-grow: 1;   /* カード＆「詳細情報へ」ボタン位置統一 */
+}
+
+.detail-info p {
+    
+    margin-bottom: 12px;    /* 下側余白 */
+}
+
+.detail-info strong {
+    color: #2c3e50; /* 文字色 */
+    font-weight: 700;   /* 太字 */
+}
+
+/* 特別イベント */
+#event {
+    background-color: #fdf2e9;  /* 背景色 */    
+    text-align: center; /* テキスト中央揃え */
+}
+
+.event-image {
+    width: 60%;
+    height: auto;   /* 高さ自動調整 */
+    margin: 20px auto;  /* 余白＆中央配置 */
+}
+
+.event-detail-box {
+    background-color: #fff;  /* 背景色 */    
+    padding: 30px;  /* 内側余白 */
+    border-radius: 8px; /* 角を丸く */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  /* 影 */
+    text-align: left;   /* テキスト左揃え */
+    max-width: 700px;
+    margin: 0 auto 30px auto; 
+}
+
+.event-detail-box h5 {
+    font-family: 'Sawarabi Mincho', serif;  /* フォント */
+    font-size: 1.8em;   /* フォントサイズ＝基本の1.8倍 */
+    color: #d35400; /* 文字色 */
+    text-align: center; /* テキスト中央揃え */
+    margin-bottom: 20px;    /* 下側余白 */
+}
+
+/* フッター */
+#page-footer {
+    background-color: #1c2833;  /* 背景色 */
+    color: #bdc3c7; /* 文字色 */
+    padding: 20px;  /* 内側余白 */
+    font-size: 0.9em;
+    text-align: center; /* テキスト中央揃え */
+}
+
+/* モーダル表示 */
+.modal {
+    display: none;  /* 初期状態では非表示 */
+    position: fixed;    /* 画面内で固定配置＝スクロールしても動かない */
+    z-index: 2000;  /* 重なり順＝ヘッダーより手前 */
+    left: 0;    /* 基準点設定 */
+    top: 0;     /* 基準点設定 */
+    width: 100%;    /* 表示範囲＝画面いっぱい */
+    height: 100%;   /* 表示範囲＝画面いっぱい */
+    background-color: rgba(0, 0, 0, 0.7);   /* 背景の不透明度 */
+    align-items: center;      /* 垂直方向の中央揃え */
+    justify-content: center;  /* 水平方向の中央揃え */
+}
+
+.modal-content {
+    background-color: #fff; /* 背景色 */
+    padding: 30px;  /* 内側余白 */
+    border-radius: 8px; /* 角を丸く */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);  /* 影 */
+    width: 90%; /* 横幅 */
+    max-width: 500px;   /* 横幅最大設定 */
+    position: relative; /* ボタン配置の基準点 */
+    text-align: center; /* テキスト中央揃え */
+}
+
+.modal-close-button {
+    color: #aaa;    /* 文字色 */
+    position: absolute; /* 右上に配置 */
+    top: 10px;  /* 右上に配置 */
+    right: 20px;    /* 右上に配置 */    
+    font-size: 28px;    /* フォントサイズ */
+    font-weight: bold;  /* 太字 */
+    transition: color 0.3s; /* 色変化アニメーション＝0.3秒 */
+    cursor: pointer;    /* マウスカーソル＝指の形 */
+}
+
+.modal-close-button:hover,
+.modal-close-button:focus {
+    color: #333;    /* 文字色 */
+}
+
+.modal-content h4 {
+    font-family: 'Sawarabi Mincho', serif;  /* フォント */
+    color: #2c3e50; /* 文字色 */
+    margin-bottom: 15px;    /* 下側余白 */
+    font-size: 1.6em;   /* フォントサイズ＝基本の1.6倍 */
+}
+
+.event-modal-image {
+    width: 80%;
+    margin: 0 auto 20px auto;   /* 中央配置＆下側余白 */
+}
+
+.modal-content p {
+    font-size: 1em;
+    line-height: 1.7;   /* 行の高さ＝1.7倍 */
+    margin-bottom: 20px;    /* 下側余白 */
+    color: #555;    /* 文字色 */
+}
+
+/* スクロールアニメーション */
+.scroll {
+    opacity: 0; /* 元＝透明 */
+    transform: translateY(40px);    /* 元＝下に配置 */
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out; /* 透明度＆変形変化アニメーション＝0.7秒 */
+}
+
+/* スクロール：要素が画面内に入ってきたとき */
+.scroll.revealed {
+    opacity: 1; /* 可視化 */
+    transform: translateY(0);   /* 元の位置に表示 */
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+
+    /* 各項目のタイトルの文字を少し小さく */
+    .content-title {
+        font-size: 1.8em;
+    }
+
+    /* ヘッダー＝縦並び */
+    header {
+        flex-direction: column;
+        padding: 15px;  /* 内側余白調整 */
+    }
+    
+    /* ロゴ下余白追加 */
+    .logo {
+        margin-bottom: 15px;
+        text-align: center; /* ロゴ中央配置 */
+    }
+    
+    /* ヘッダー右側＝幅いっぱい＆中央揃え */
+    .header-right {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    /* ナビゲーション＝縦並び */
+    .navigation ul {
+        flex-direction: column;
+        align-items: center; /* 中央揃え */
+        width: 100%;
+    }
+
+    /* 各ナビゲーションの上下に余白＆幅いっぱい */
+    .navigation ul li {
+        margin: 5px 0; /* 余白 */
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* ナビゲーションリンク＝背景色 */
+    .navigation a {
+        display: block;
+        padding: 8px;
+        background-color: rgba(255, 255, 255, 0.05); /* 背景色 */
+        border-radius: 3px;
+    }
+
+    /* タイトル＝画面の高さの50% */
+    #top {
+        height: 50vh;
+    }
+
+    /* タイトル内キャッチコピー＝少し小さく */
+    #top h2 {
+        font-size: 2em;
+    }
+    
+    /* 導入の見出し＝少し小さく */
+    #intro h3 {
+        font-size: 1.6em;
+    }
+    
+    /* 和歌カードの適切再配置 */
+    .waka-guide-box h5 {
+        min-height: auto;
+    }
+    
+    /* モーダルの内側の余白＝少し小さく */
+    .modal-content {
+        padding: 20px;
+    }
+}
