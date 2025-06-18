@@ -96,7 +96,7 @@ header {
 /* タイトル */
 #top {
     position: relative; /* タイトル背景画像固定 */
-    height: 65vh;   /* 画面の高さ設定 */
+    height: 65vh;   /* 画像サイズ設定＝表示領域（全体）の65% */
     display: flex;  /* 中央配置 */
     align-items: center;      /* 垂直方向の中央揃え */
     justify-content: center;  /* 水平方向の中央揃え */
