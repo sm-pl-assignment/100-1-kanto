@@ -426,7 +426,7 @@ header {
     /* ナビゲーション＝縦並び */
     .navigation ul {
         flex-direction: column;
-        align-items: center; /* 中央揃え */
+        align-items: center; /* スマホ画面に中央揃え */
         width: 100%;
     }
 
